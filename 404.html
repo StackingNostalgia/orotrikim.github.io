@@ -1,58 +1,113 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>1418 - Page not found</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="/css/404.css">
     <meta name="theme-color" content="#d12727">
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
     <link rel="icon" type="image/png" href="/assets/img/favicon.png">
-    <script>
-        window.onload = function () {
-            var count = 30;
-            var countdownElement = document.querySelector('h4');
-            var countdownInterval = setInterval(function () {
-                count--;
-                countdownElement.textContent = "Back to home in: " + count;
-                if (count <= 0) {
-                    clearInterval(countdownInterval);
-                    window.location.href = "/";
-                }
-            }, 1000);
+    <link rel="stylesheet" href="/css/404.css">
+    <style>
+        /* Modern Flexbox centering – works everywhere */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+        }
 
-            // Check if a phone or iPad -> @media tags cant change actual text only js
-            if (window.innerWidth <= 700 || (window.innerWidth > 700 && window.innerWidth <= 1024)) {
-                document.body.classList.add('mobile');
-                
-                var leftElement = document.querySelector('.left');
-                if (leftElement) {
-                    leftElement.style.display = 'none';
-                }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-                var headerElement = document.querySelector('.right h1');
-                if (headerElement) {
-                    headerElement.textContent = "We could not find that";
-                }
-            }
-        };
-    </script>
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin: 0.5rem 0;
+            color: #d12727;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 0.5rem 0;
+            color: #555;
+        }
+
+        h4 {
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+            color: #777;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 28px;
+            background: #d12727;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .button:hover {
+            background: #b81e1e;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 700px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.5rem; }
+            .container { padding: 1.5rem; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="left">
-        </div>
-        <div class="right">
-        </div>
-        <div class="right">
-            <h2>דף לא נמצא</h2>
-            <h1>This page could not be found!</h1>
-            <a href="/" class="button">Back To Home</a>
-            <h4>Back to home in: 30</h4>
-        </div>
-    </div>
-</body>
 
+<div class="container">
+    <h2>דף לא נמצא</h2>
+    <h1>This page could not be found!</h1>
+    <a href="/" class="button">Back To Home</a>
+    <h4>Back to home in: <span id="countdown">30</span></h4>
+</div>
+
+<script>
+    window.onload = function () {
+        let count = 30;
+        const countdownElement = document.getElementById('countdown');
+        const countdownInterval = setInterval(() => {
+            count--;
+            countdownElement.textContent = count;
+            if (count <= 0) {
+                clearInterval(countdownInterval);
+                window.location.href = "/";
+            }
+        }, 1000);
+
+        // Optional: Hide left panel on small screens (if you still want it)
+        if (window.innerWidth <= 1024) {
+            const left = document.querySelector('.left');
+            if (left) left.style.display = 'none';
+        }
+    };
+</script>
+
+</body>
 </html>
