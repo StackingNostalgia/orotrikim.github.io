@@ -61,28 +61,32 @@
                 <div><a href="mailto:OrotrikimATSYMBOLgmailPERIODcom" target="_blank"><img src="/images/social/email.svg" alt="Email icon"></a></div>
                 <div><a href="http://instagram.com/1418roboticsmhs" target="_blank"><img src="/images/social/instagram.svg" alt="Instagram logo"></a></div>
                 <div><a href="https://www.youtube.com/@{{ site.youtube_username }}" target="_blank"><img src="/images/social/youtube.svg" alt="Youtube logo"></a></div>
-            </div>
+            </div>v
             <div class="social">
                 <div><a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank"><img src="/images/social/facebook.svg" alt="Facebook logo"></a></div>
             </div>
         </div>
-        <ul>
-            <li><a href="/">Home</a></li>
-                </ul>
-            </li>
-            <li><a href="/team">The Team</a>
-                <ul>
-            </li>
-            <li><a href="/sponsorship">Sponsor Us</a></li>
-                <ul>
-            </li>
-            <li><a href="/contact">Contact</a></li>
-                </ul>
-            </li>
-            
-        </ul>
-      
-    </nav>
+        
+<ul class="nav-list">
+        <!-- Home (no dropdown) -->
+        <li><a href="/">Home</a></li>
+
+        <!-- The Team (with dropdown) -->
+        <li class="dropdown">
+            <a href="/team">The Team</a>
+            <ul class="dropdown-menu">
+                <!-- Add submenu items here if you need them -->
+                <!-- <li><a href="/team/members">Members</a></li> -->
+            </ul>
+        </li>
+
+        <!-- Sponsor Us (no dropdown) -->
+        <li><a href="/sponsorship">Sponsor Us</a></li>
+
+        <!-- Contact (no dropdown) -->
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+</nav>
     <script src="/js/scripts.js"></script>
     <script src="/js/header.js"></script>
    
