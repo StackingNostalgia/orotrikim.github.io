@@ -57,11 +57,11 @@ body.onresize = () => {
 
 function swapMiniTitle() {
     if (window.innerWidth < 432) {
-        miniTitle.textContent = '1418';
+        miniTitle.textContent = 'Orotrikim';
        
    
     } else if (window.innerWidth < 1319) {
-        miniTitle.textContent = 'TEAM 1418';
+        miniTitle.textContent = 'Rotrikim';
        
     
     }
