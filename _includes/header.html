@@ -39,12 +39,19 @@
         margin-top: 15px;
         font-size: 20px;
         text-decoration: underline;
+        color: #fff;
+    }
+
+    .links a {
+        color: #fff;
+        text-decoration: none;
     }
 
     @media screen and (min-width: 1100px) {
         .navwindow { display: none !important; }
     }
 
+    /* === SQUARE SOCIAL LOGOS === */
     .social-container {
         display: inline-block;
         margin-left: 20px;
@@ -65,6 +72,14 @@
         height: 32px;
         display: block;
     }
+
+    /* === YELLOW ACTIVE MARKER (#ffff00) === */
+    .nav-list a.active {
+        color: #ffff00 !important;
+        font-weight: bold;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
 </style>
 
 <header id="canvafein">
@@ -78,6 +93,7 @@
     <img src="/images/navnew.png" class="ohio" id="ohioskullemoji" alt="Menu">
     
     <nav>
+        <!-- SOCIAL ICONS — 2×2 GRID -->
         <div class="social-container">
             <div class="social" id="social">
                 <div><a href="mailto:OrotrikimATSYMBOLgmailPERIODcom" target="_blank"><img src="/images/social/email.svg" alt=""></a></div>
@@ -87,21 +103,22 @@
             </div>
         </div>
         
+        <!-- NAV WITH YELLOW ACTIVE MARKER -->
         <ul class="nav-list">
-            <li><a href="/">Home</a></li>
+            <li><a href="/" {% if page.permalink == '/' or page.url == '/' %}class="active"{% endif %}>Home</a></li>
             <li class="dropdown">
-                <a href="/team">The Team</a>
+                <a href="/team" {% if page.permalink == '/team/' %}class="active"{% endif %}>The Team</a>
                 <ul class="dropdown-menu"></ul>
             </li>
-            <li><a href="/sponsorship">Sponsor Us</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/sponsorship" {% if page.permalink == '/sponsorship/' %}class="active"{% endif %}>Sponsor Us</a></li>
+            <li><a href="/contact" {% if page.permalink == '/contact/' %}class="active"{% endif %}>Contact</a></li>
         </ul>
     </nav>
     <script src="/js/scripts.js"></script>
     <script src="/js/header.js"></script>
 </header>
 
-<!-- MOBILE MENU — CLEAN & MINIMAL -->
+<!-- MOBILE MENU — CLEAN -->
 <nav>
     <header class="navwindow" id="navid">
         <div>
