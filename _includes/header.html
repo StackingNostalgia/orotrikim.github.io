@@ -32,7 +32,7 @@
         margin-left: 20px;
     }
 
-    /* === ONLY CHANGE: SOCIAL LOGOS → 2×2 SQUARE GRID === */
+    /* === SQUARE 2×2 SOCIAL GRID — NO L, NO UPSIDE-DOWN === */
     .social-container {
         display: inline-block;
         margin-left: 20px;
@@ -43,8 +43,9 @@
         grid-template-columns: 1fr 1fr;
         gap: 10px;
         width: 80px;
+        margin: 0;
     }
-    #social .social {
+    #social > div {
         display: contents;
     }
     #social img {
@@ -63,14 +64,16 @@
     </div>
     <div id="nav-button"><span></span><span></span><span></span></div>
     <img src="/images/navnew.png" class="ohio" id="ohioskullemoji">
+    
     <nav>
+        <!-- SOCIAL ICONS — ORDERED FOR 2×2 GRID -->
         <div class="social-container">
             <div class="social" id="social">
+                <!-- ROW 1 -->
                 <div><a href="mailto:OrotrikimATSYMBOLgmailPERIODcom" target="_blank"><img src="/images/social/email.svg" alt="Email icon"></a></div>
                 <div><a href="http://instagram.com/orotrikim" target="_blank"><img src="/images/social/instagram.svg" alt="Instagram logo"></a></div>
+                <!-- ROW 2 -->
                 <div><a href="https://www.youtube.com/@{{ site.youtube_username }}" target="_blank"><img src="/images/social/youtube.svg" alt="Youtube logo"></a></div>
-            </div>
-            <div class="social">
                 <div><a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank"><img src="/images/social/facebook.svg" alt="Facebook logo"></a></div>
             </div>
         </div>
