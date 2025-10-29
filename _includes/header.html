@@ -1,22 +1,24 @@
 <a id="content-skip" href="#content" tabindex="1">Skip to content</a>
 
 <style>
-    .ohio{
+    /* === GENERAL STYLES === */
+    .ohio {
         display: none;
-        margin-left: 650px;
         width: 8vh;
+        cursor: pointer;
     }
 
     @media screen and (max-width: 1099px) {
         .ohio {
-            display: flex; 
-            right: 10px;
+            display: flex;
             position: absolute;
+            right: 10px;
             top: 20px;
             z-index: 1001;
         }
     }
 
+    /* === MOBILE SLIDE-IN MENU === */
     .navwindow {
         position: fixed;
         top: 0;
@@ -35,7 +37,7 @@
         right: 0;
     }
 
-    .links{
+    .links {
         margin-top: 15px;
         font-size: 20px;
         text-decoration: underline;
@@ -47,16 +49,29 @@
         text-decoration: none;
     }
 
+    .nestedlinks {
+        display: block;
+        margin: 8px 0 8px 20px;
+        font-size: 16px;
+        color: #ccc;
+        text-decoration: none;
+    }
+
+    .nestedlinks:hover {
+        color: #ffff00;
+    }
+
     @media screen and (min-width: 1100px) {
         .navwindow { display: none !important; }
     }
 
-    /* === SQUARE SOCIAL LOGOS === */
+    /* === SOCIAL ICONS — 2×2 GRID === */
     .social-container {
         display: inline-block;
         margin-left: 20px;
         vertical-align: top;
     }
+
     #social {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -64,22 +79,31 @@
         width: 80px;
         margin: 0;
     }
+
     #social > div {
         display: contents;
     }
+
     #social img {
         width: 32px;
         height: 32px;
         display: block;
+        transition: filter 0.2s ease;
     }
 
-    /* === YELLOW BUTTON EFFECT ON HOVER & ACTIVE === */
+    #social img:hover {
+        filter: brightness(0) saturate(100%) invert(82%) sepia(98%) saturate(7498%) hue-rotate(359deg) brightness(105%) contrast(103%);
+        /* Yellow glow on hover */
+    }
+
+    /* === DESKTOP NAV — YELLOW BUTTONS === */
     .nav-list {
         list-style: none;
         padding: 0;
         margin: 0;
         display: flex;
         gap: 1.5rem;
+        align-items: center;
     }
 
     .nav-list a {
@@ -101,6 +125,13 @@
         color: #000 !important;
         font-weight: bold;
     }
+
+    /* === HIDE DESKTOP NAV ON MOBILE === */
+    @media screen and (max-width: 1099px) {
+        .nav-list, .social-container {
+            display: none !important;
+        }
+    }
 </style>
 
 <header id="canvafein">
@@ -110,20 +141,23 @@
         <h5 class="title-simple"><a id="title-mini" href="/">rotrikim</a></h5>
         <h3><a href="/">First Lego League Team Mehunanim</a></h3>
     </div>
+
+    <!-- Hamburger Button -->
     <div id="nav-button"><span></span><span></span><span></span></div>
-    <img src="/images/navnew.png" class="ohio" id="ohioskullemoji" alt="Menu">
-    
+    <img src="/images/navnew.png" class="ohio" id="ohioskullemoji" alt="Menu" onclick="toggleNav()">
+
+    <!-- Desktop Nav -->
     <nav>
         <!-- SOCIAL ICONS — 2×2 GRID -->
         <div class="social-container">
             <div class="social" id="social">
-                <div><a href="mailto:OrotrikimATSYMBOLgmailPERIODcom" target="_blank"><img src="/images/social/email.svg" alt=""></a></div>
-                <div><a href="http://instagram.com/orotrikim" target="_blank"><img src="/images/social/instagram.svg" alt=""></a></div>
-                <div><a href="https://www.youtube.com/@{{ site.youtube_username }}" target="_blank"><img src="/images/social/youtube.svg" alt=""></a></div>
-                <div><a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank"><img src="/images/social/facebook.svg" alt=""></a></div>
+                <div><a href="mailto:OrotrikimATSYMBOLgmailPERIODcom" target="_blank"><img src="/images/social/email.svg" alt="Email"></a></div>
+                <div><a href="http://instagram.com/orotrikim" target="_blank"><img src="/images/social/instagram.svg" alt="Instagram"></a></div>
+                <div><a href="https://www.youtube.com/@{{ site.youtube_username }}" target="_blank"><img src="/images/social/youtube.svg" alt="YouTube"></a></div>
+                <div><a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank"><img src="/images/social/facebook.svg" alt="Facebook"></a></div>
             </div>
         </div>
-        
+
         <!-- NAV WITH YELLOW BUTTON EFFECT -->
         <ul class="nav-list">
             <li><a href="/" {% if page.permalink == '/' or page.url == '/' %}class="active"{% endif %}>Home</a></li>
@@ -135,18 +169,43 @@
             <li><a href="/contact" {% if page.permalink == '/contact/' %}class="active"{% endif %}>Contact</a></li>
         </ul>
     </nav>
-    <script src="/js/scripts.js"></script>
-    <script src="/js/header.js"></script>
 </header>
 
-<!-- MOBILE MENU — CLEAN -->
-<nav>
-    <header class="navwindow" id="navid">
-        <div>
-            <ul class="links"><a href="/">HOME</a></ul>
-            <ul class="links"><a href="/team">THE TEAM</a></ul>
-            <ul class="links"><a href="/sponsorship">SPONSOR US</a></ul>
-            <ul class="links"><a href="/contact">CONTACT</a></ul>
-        </div>
-    </header>
-</nav>
+<!-- MOBILE MENU — SLIDE-IN WITH NESTED ITEMS -->
+<div class="navwindow" id="navid">
+    <div>
+        <ul class="links"><a href="/">HOME</a></ul>
+
+        <ul class="links"><a href="/team">THE TEAM</a></ul>
+        <!-- Add nested items under The Team if needed -->
+
+        <ul class="links"><a href="/sponsorship">SPONSOR US</a></ul>
+        <ul class="links"><a href="/contact">CONTACT</a></ul>
+    </div>
+</div>
+
+<script>
+    // Toggle mobile menu
+    function toggleNav() {
+        const nav = document.getElementById('navid');
+        nav.classList.toggle('open');
+    }
+
+    // Click handlers
+    document.getElementById('nav-button').onclick = toggleNav;
+    document.getElementById('ohioskullemoji').onclick = toggleNav;
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        const nav = document.getElementById('navid');
+        const button = document.getElementById('nav-button');
+        const icon = document.getElementById('ohioskullemoji');
+
+        if (!nav.contains(e.target) && !button.contains(e.target) && !icon.contains(e.target)) {
+            nav.classList.remove('open');
+        }
+    });
+</script>
+
+<script src="/js/scripts.js"></script>
+<script src="/js/header.js"></script>
