@@ -57,7 +57,7 @@
         .navwindow { display: none !important; }
     }
 
-    /* 2×2 SOCIAL ICONS – default (big header) */
+    /* === SOCIAL ICONS: 2×2 → 1×4 WHEN HEADER IS SMALL === */
     .social-container {
         display: inline-block;
         margin-left: 20px;
@@ -80,9 +80,9 @@
         display: block;
     }
 
-    /* NEW: 1×4 when header is collapsed (class .small added by header.js) */
+    /* 1×4 ROW WHEN HEADER IS SMALL (on scroll) */
     header.small #social {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         width: auto;
         gap: 8px;
     }
@@ -108,7 +108,7 @@
         text-decoration: none;
         padding: 8px 16px;
         border-radius: 8px;
-        transition: background .2s ease, color .2s ease;
+        transition: background 0.2s ease, color 0.2s ease;
         font-weight: 500;
     }
 
@@ -140,7 +140,7 @@
     <img src="/images/navnew.png" class="ohio" id="ohioskullemoji" alt="Menu">
 
     <nav>
-        <!-- 2×2 SOCIAL ICONS (becomes 1×4 when .small) -->
+        <!-- SOCIAL ICONS: 2×2 → 1×4 ON .small -->
         <div class="social-container">
             <div class="social" id="social">
                 <div><a href="mailto:OrotrikimATSYMBOLgmailPERIODcom" target="_blank"><img src="/images/social/email.svg" alt=""></a></div>
