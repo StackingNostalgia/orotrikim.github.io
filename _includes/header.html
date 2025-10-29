@@ -11,28 +11,40 @@
         .ohio {
             display: flex; 
             right: 10px;
+            position: absolute;
+            top: 20px;
+            z-index: 1001;
         }
     }
+
     .navwindow {
-        background-color:#2b2a28;
-        margin-top: 80px;
-        margin-left: -200px;
-        transform: translateX(100%);
-        display: block;
-        height: 1000px;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100vh;
+        background-color: #2b2a28;
+        padding: 90px 20px 20px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
     }
+
+    .navwindow.open {
+        right: 0;
+    }
+
     .links{
         margin-top: 15px;
         font-size: 20px;
         text-decoration: underline;
     }
-    .nestedlinks{
-        display: block;
-        margin-top: 10px;
-        margin-left: 20px;
+
+    @media screen and (min-width: 1100px) {
+        .navwindow { display: none !important; }
     }
 
-    /* === SQUARE 2×2 SOCIAL GRID — NO L, NO UPSIDE-DOWN === */
     .social-container {
         display: inline-block;
         margin-left: 20px;
@@ -63,18 +75,15 @@
         <h3><a href="/">First Lego League Team Mehunanim</a></h3>
     </div>
     <div id="nav-button"><span></span><span></span><span></span></div>
-    <img src="/images/navnew.png" class="ohio" id="ohioskullemoji">
+    <img src="/images/navnew.png" class="ohio" id="ohioskullemoji" alt="Menu">
     
     <nav>
-        <!-- SOCIAL ICONS — ORDERED FOR 2×2 GRID -->
         <div class="social-container">
             <div class="social" id="social">
-                <!-- ROW 1 -->
-                <div><a href="mailto:OrotrikimATSYMBOLgmailPERIODcom" target="_blank"><img src="/images/social/email.svg" alt="Email icon"></a></div>
-                <div><a href="http://instagram.com/orotrikim" target="_blank"><img src="/images/social/instagram.svg" alt="Instagram logo"></a></div>
-                <!-- ROW 2 -->
-                <div><a href="https://www.youtube.com/@{{ site.youtube_username }}" target="_blank"><img src="/images/social/youtube.svg" alt="Youtube logo"></a></div>
-                <div><a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank"><img src="/images/social/facebook.svg" alt="Facebook logo"></a></div>
+                <div><a href="mailto:OrotrikimATSYMBOLgmailPERIODcom" target="_blank"><img src="/images/social/email.svg" alt=""></a></div>
+                <div><a href="http://instagram.com/orotrikim" target="_blank"><img src="/images/social/instagram.svg" alt=""></a></div>
+                <div><a href="https://www.youtube.com/@{{ site.youtube_username }}" target="_blank"><img src="/images/social/youtube.svg" alt=""></a></div>
+                <div><a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank"><img src="/images/social/facebook.svg" alt=""></a></div>
             </div>
         </div>
         
@@ -92,18 +101,14 @@
     <script src="/js/header.js"></script>
 </header>
 
+<!-- MOBILE MENU — CLEAN & MINIMAL -->
 <nav>
     <header class="navwindow" id="navid">
         <div>
             <ul class="links"><a href="/">HOME</a></ul>
             <ul class="links"><a href="/team">THE TEAM</a></ul>
-            <ul><a href="/alumni" class="nestedlinks">ALUMNI</a></ul>
             <ul class="links"><a href="/sponsorship">SPONSOR US</a></ul>
-            <ul class="links"><p>MORE</p></ul>
-            <ul><a href="/outreach" class="nestedlinks">OUTREACH</a></ul>
-            <ul><a href="/contact" class="nestedlinks">CONTACT</a></ul>
-            <ul><a href="/branding" class="nestedlinks">BRANDING</a></ul>
-            <ul><a href="/resources" class="nestedlinks">RESOURCES</a></ul>
+            <ul class="links"><a href="/contact">CONTACT</a></ul>
         </div>
     </header>
 </nav>
