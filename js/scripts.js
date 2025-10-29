@@ -36,7 +36,7 @@ for (i = 0; i < links.length; i++) {
 	links[i].href = links[i].href.replace(/ATSYMBOL/, '@').replace(/PERIOD/, '.');
 }
 
-if ((location.protocol === 'http:' || location.protocol === 'https:') && location.hostname === '1418.team') {
+if ((location.protocol === 'http:' || location.protocol === 'https:') && location.hostname === 'orotrikim.ddns.net') {
     ((i,s,o,g,r,a,m) => {
 		i['GoogleAnalyticsObject']=r;i[r]=i[r]||(() => {
     		(i[r].q=i[r].q||[]).push(arguments)
