@@ -57,7 +57,7 @@
         .navwindow { display: none !important; }
     }
 
-    /* === SOCIAL ICONS: 2×2 → 1×4 WHEN HEADER IS SMALL === */
+    /* === SOCIAL ICONS: 2×2 → 1×4 WHEN .shrink (from header.js) === */
     .social-container {
         display: inline-block;
         margin-left: 20px;
@@ -70,6 +70,7 @@
         gap: 10px;
         width: 80px;
         margin: 0;
+        transition: all 0.3s ease;
     }
 
     #social > div { display: contents; }
@@ -78,16 +79,17 @@
         width: 32px;
         height: 32px;
         display: block;
+        transition: all 0.3s ease;
     }
 
-    /* 1×4 ROW WHEN HEADER IS SMALL (on scroll) */
-    header.small #social {
+    /* 1×4 WHEN HEADER HAS .shrink CLASS */
+    header.shrink #social {
         grid-template-columns: 1fr 1fr 1fr 1fr;
         width: auto;
         gap: 8px;
     }
 
-    header.small #social img {
+    header.shrink #social img {
         width: 28px;
         height: 28px;
     }
@@ -140,7 +142,7 @@
     <img src="/images/navnew.png" class="ohio" id="ohioskullemoji" alt="Menu">
 
     <nav>
-        <!-- SOCIAL ICONS: 2×2 → 1×4 ON .small -->
+        <!-- SOCIAL ICONS: 2×2 → 1×4 ON .shrink -->
         <div class="social-container">
             <div class="social" id="social">
                 <div><a href="mailto:OrotrikimATSYMBOLgmailPERIODcom" target="_blank"><img src="/images/social/email.svg" alt=""></a></div>
@@ -178,11 +180,14 @@
 
 <script>
     function toggleNav() {
-        document.getElementById('navid').classList.toggle('open');
+        const nav = document.getElementById('navid');
+        nav.classList.toggle('open');
     }
 
-    document.getElementById('nav-button')?.addEventListener('click', toggleNav);
-    document.getElementById('ohioskullemoji')?.addEventListener('click', toggleNav);
+    const navButton = document.getElementById('nav-button');
+    const navIcon = document.getElementById('ohioskullemoji');
+    if (navButton) navButton.addEventListener('click', toggleNav);
+    if (navIcon) navIcon.addEventListener('click', toggleNav);
 
     document.addEventListener('click', function(e) {
         const nav = document.getElementById('navid');
