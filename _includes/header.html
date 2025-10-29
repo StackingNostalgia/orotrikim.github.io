@@ -1,338 +1,191 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orotrikim - First Lego League Team</title>
+<a id="content-skip" href="#content" tabindex="1">Skip to content</a>
 
-    <style>
-        /* === GENERAL STYLES === */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+    .ohio{
+        display: none;
+        margin-left: 650px;
+        width: 8vh;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: #fff;
-        }
-
-        #canvafein {
-            display: flex;
-            align-items: center;
-            padding: 15px 30px;
-            background: #1a1a1a;
-            position: relative;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        #logo {
-            height: 50px;
-        }
-
-        .header-group {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .title, .title-simple, h3 {
-            margin: 0;
-            line-height: 1.3;
-        }
-
-        .title a, .title-simple a, h3 a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .title { font-size: 1.8rem; }
-        .title-simple { font-size: 1rem; display: none; }
-        h3 { font-size: 0.9rem; font-weight: normal; }
-
-        /* Hamburger Button */
-        #nav-button {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-        }
-
-        #nav-button span {
-            width: 30px;
-            height: 3px;
-            background: #fff;
-            border-radius: 2px;
-            transition: 0.3s;
-        }
-
-        /* Mobile Menu Icon */
+    @media screen and (max-width: 1099px) {
         .ohio {
-            display: none;
-            width: 8vh;
-            cursor: pointer;
-        }
-
-        @media screen and (max-width: 1099px) {
-            #nav-button {
-                display: flex;
-                position: absolute;
-                right: 20px;
-                top: 25px;
-                z-index: 1001;
-            }
-
-            .ohio {
-                display: block;
-                position: absolute;
-                right: 10px;
-                top: 20px;
-                z-index: 1001;
-            }
-
-            .title { display: none; }
-            .title-simple { display: block; }
-            h3 { font-size: 0.8rem; }
-
-            #canvafein {
-                padding: 15px;
-                justify-content: flex-start;
-            }
-
-            .header-group {
-                margin-left: 60px;
-            }
-        }
-
-        /* === MOBILE SLIDE-IN MENU === */
-        .navwindow {
-            position: fixed;
-            top: 0;
-            right: -300px;
-            width: 280px;
-            height: 100vh;
-            background-color: #2b2a28;
-            padding: 90px 20px 20px;
-            transition: right 0.3s ease;
-            z-index: 1000;
-            overflow-y: auto;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.5);
-        }
-
-        .navwindow.open {
-            right: 0;
-        }
-
-        .links {
-            margin-top: 15px;
-            font-size: 20px;
-            text-decoration: underline;
-            color: #fff;
-        }
-
-        .links a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .nestedlinks {
-            display: block;
-            margin: 8px 0 8px 20px;
-            font-size: 16px;
-            color: #ccc;
-            text-decoration: none;
-        }
-
-        .nestedlinks:hover {
-            color: #ffff00;
-        }
-
-        @media screen and (min-width: 1100px) {
-            .navwindow { display: none !important; }
-        }
-
-        /* === SOCIAL ICONS — 2×2 GRID === */
-        .social-container {
-            display: inline-block;
-            vertical-align: top;
-        }
-
-        #social {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            width: 80px;
-            margin: 0;
-        }
-
-        #social > div {
-            display: contents;
-        }
-
-        #social img {
-            width: 32px;
-            height: 32px;
-            display: block;
-            transition: filter 0.2s ease;
-        }
-
-        #social img:hover {
-            filter: brightness(0) saturate(100%) invert(82%) sepia(98%) saturate(7498%) hue-rotate(359deg) brightness(105%) contrast(103%);
-        }
-
-        /* === DESKTOP NAV — SPACED TO THE RIGHT === */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            margin-left: 20px;
-        }
-
-        .social-container {
-            margin-right: auto;
-            margin-left: 0;
-        }
-
-        .nav-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 1.5rem;
-            margin-left: auto;
-            align-items: center;
-        }
-
-        .nav-list a {
-            color: #fff;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: background 0.2s ease, color 0.2s ease;
-            font-weight: 500;
-        }
-
-        .nav-list a:hover {
-            background: #ffff00;
-            color: #000 !important;
-        }
-
-        .nav-list a.active {
-            background: #ffff00;
-            color: #000 !important;
-            font-weight: bold;
-        }
-
-        /* === HIDE ON MOBILE === */
-        @media screen and (max-width: 1099px) {
-            .nav-list, .social-container, nav {
-                display: none !important;
-            }
-        }
-
-        /* Skip to content */
-        #content-skip {
+            display: flex; 
+            right: 10px;
             position: absolute;
-            top: -40px;
-            left: 0;
-            background: #ffff00;
-            color: #000;
-            padding: 8px;
-            font-weight: bold;
-            text-decoration: none;
-            z-index: 10000;
+            top: 20px;
+            z-index: 1001;
         }
+    }
 
-        #content-skip:focus {
-            top: 0;
+    /* === MOBILE SLIDE-IN MENU === */
+    .navwindow {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100vh;
+        background-color: #2b2a28;
+        padding: 90px 20px 20px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    }
+
+    .navwindow.open {
+        right: 0;
+    }
+
+    .links{
+        margin-top: 15px;
+        font-size: 20px;
+        text-decoration: underline;
+        color: #fff;
+    }
+
+    .links a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .nestedlinks{
+        display: block;
+        margin-top: 10px;
+        margin-left: 20px;
+        font-size: 16px;
+        color: #ccc;
+    }
+
+    .nestedlinks:hover {
+        color: #ffff00;
+    }
+
+    @media screen and (min-width: 1100px) {
+        .navwindow { display: none !important; }
+    }
+
+    /* === SQUARE SOCIAL LOGOS === */
+    .social-container {
+        display: inline-block;
+        margin-left: 20px;
+        vertical-align: top;
+    }
+    #social {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 80px;
+        margin: 0;
+    }
+    #social > div {
+        display: contents;
+    }
+    #social img {
+        width: 32px;
+        height: 32px;
+        display: block;
+    }
+
+    /* === YELLOW BUTTON EFFECT ON HOVER & ACTIVE === */
+    .nav-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 1.5rem;
+        margin-left: 40px; /* Increased from ~20px to 40px */
+    }
+
+    .nav-list a {
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 8px;
+        transition: background 0.2s ease, color 0.2s ease;
+        font-weight: 500;
+    }
+
+    .nav-list a:hover {
+        background: #ffff00;
+        color: #000 !important;
+    }
+
+    .nav-list a.active {
+        background: #ffff00;
+        color: #000 !important;
+        font-weight: bold;
+    }
+
+    /* Hide desktop nav on mobile */
+    @media screen and (max-width: 1099px) {
+        .nav-list, .social-container {
+            display: none !important;
         }
+    }
+</style>
 
-        /* Main content placeholder */
-        main {
-            padding: 40px 20px;
-            min-height: 100vh;
-        }
-    </style>
-</head>
-<body>
-
-    <a id="content-skip" href="#content" tabindex="1">Skip to content</a>
-
-    <header id="canvafein">
-        <a href="/"><img id="logo" src="/images/gear.svg" alt="1418 logo"></a>
-        <div class="header-group">
-            <h2 class="title"><a href="/">Orotrikim</a></h2>
-            <h5 class="title-simple"><a id="title-mini" href="/">rotrikim</a></h5>
-            <h3><a href="/">First Lego League Team Mehunanim</a></h3>
-        </div>
-
-        <!-- Hamburger Button -->
-        <div id="nav-button" onclick="toggleNav()">
-            <span></span><span></span><span></span>
-        </div>
-        <img src="/images/navnew.png" class="ohio" id="ohioskullemoji" alt="Menu" onclick="toggleNav()">
-
-        <!-- Desktop Navigation -->
-        <nav>
-            <!-- SOCIAL ICONS — 2×2 GRID -->
-            <div class="social-container">
-                <div class="social" id="social">
-                    <div><a href="mailto:OrotrikimATSYMBOLgmailPERIODcom" target="_blank"><img src="/images/social/email.svg" alt="Email"></a></div>
-                    <div><a href="http://instagram.com/orotrikim" target="_blank"><img src="/images/social/instagram.svg" alt="Instagram"></a></div>
-                    <div><a href="https://www.youtube.com/@{{ site.youtube_username }}" target="_blank"><img src="/images/social/youtube.svg" alt="YouTube"></a></div>
-                    <div><a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank"><img src="/images/social/facebook.svg" alt="Facebook"></a></div>
-                </div>
-            </div>
-
-            <!-- NAV WITH YELLOW BUTTON EFFECT -->
-            <ul class="nav-list">
-                <li><a href="/" class="active">Home</a></li>
-                <li><a href="/team">The Team</a></li>
-                <li><a href="/sponsorship">Sponsor Us</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- MOBILE SLIDE-IN MENU -->
-    <div class="navwindow" id="navid">
-        <div>
-            <ul class="links"><a href="/">HOME</a></ul>
-            <ul class="links"><a href="/team">THE TEAM</a></ul>
-            <ul class="links"><a href="/sponsorship">SPONSOR US</a></ul>
-            <ul class="links"><a href="/contact">CONTACT</a></ul>
-        </div>
+<header id="canvafein">
+    <a href="/"><img id="logo" src="/images/gear.svg" alt="1418 logo"></a>
+    <div class="header-group">
+        <h2 class="title"><a href="/">Orotrikim</a></h2>
+        <h5 class="title-simple"><a id="title-mini" href="/">rotrikim</a></h5>
+        <h3><a href="/">First Lego League Team Mehunanim</a></h3>
     </div>
-
-    <!-- Main Content (for testing) -->
-    <main id="content">
-        <h1>Welcome to Orotrikim</h1>
-        <p>This is a test page. Your header is working!</p>
-    </main>
-
-    <!-- JavaScript -->
-    <script>
-        function toggleNav() {
-            const nav = document.getElementById('navid');
-            nav.classList.toggle('open');
-        }
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const nav = document.getElementById('navid');
-            const button = document.getElementById('nav-button');
-            const icon = document.getElementById('ohioskullemoji');
-
-            if (!nav.contains(e.target) && !button.contains(e.target) && !icon.contains(e.target)) {
-                nav.classList.remove('open');
-            }
-        });
-    </script>
-
+    <div id="nav-button"><span></span><span></span><span></span></div>
+    <img src="/images/navnew.png" class="ohio" id="ohioskullemoji" alt="Menu">
+    
+    <nav>
+        <!-- SOCIAL ICONS — 2×2 GRID -->
+        <div class="social-container">
+            <div class="social" id="social">
+                <div><a href="mailto:OrotrikimATSYMBOLgmailPERIODcom" target="_blank"><img src="/images/social/email.svg" alt=""></a></div>
+                <div><a href="http://instagram.com/orotrikim" target="_blank"><img src="/images/social/instagram.svg" alt=""></a></div>
+                <div><a href="https://www.youtube.com/@{{ site.youtube_username }}" target="_blank"><img src="/images/social/youtube.svg" alt=""></a></div>
+                <div><a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank"><img src="/images/social/facebook.svg" alt=""></a></div>
+            </div>
+        </div>
+        
+        <!-- NAV WITH YELLOW BUTTON EFFECT -->
+        <ul class="nav-list">
+            <li><a href="/" {% if page.permalink == '/' or page.url == '/' %}class="active"{% endif %}>Home</a></li>
+            <li class="dropdown">
+                <a href="/team" {% if page.permalink == '/team/' %}class="active"{% endif %}>The Team</a>
+                <ul class="dropdown-menu"></ul>
+            </li>
+            <li><a href="/sponsorship" {% if page.permalink == '/sponsorship/' %}class="active"{% endif %}>Sponsor Us</a></li>
+            <li><a href="/contact" {% if page.permalink == '/contact/' %}class="active"{% endif %}>Contact</a></li>
+        </ul>
+    </nav>
     <script src="/js/scripts.js"></script>
     <script src="/js/header.js"></script>
-</body>
-</html>
+</header>
+
+<!-- MOBILE MENU — SLIDE-IN WITH NESTED STYLE -->
+<div class="navwindow" id="navid">
+    <div>
+        <ul class="links"><a href="/">HOME</a></ul>
+        <ul class="links"><a href="/team">THE TEAM</a></ul>
+        <ul class="links"><a href="/sponsorship">SPONSOR US</a></ul>
+        <ul class="links"><a href="/contact">CONTACT</a></ul>
+    </div>
+</div>
+
+<script>
+    function toggleNav() {
+        const nav = document.getElementById('navid');
+        nav.classList.toggle('open');
+    }
+
+    document.getElementById('nav-button')?.addEventListener('click', toggleNav);
+    document.getElementById('ohioskullemoji')?.addEventListener('click', toggleNav);
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+        const nav = document.getElementById('navid');
+        const button = document.getElementById('nav-button');
+        const icon = document.getElementById('ohioskullemoji');
+        if (nav && !nav.contains(e.target) && !button?.contains(e.target) && !icon?.contains(e.target)) {
+            nav.classList.remove('open');
+        }
+    });
+</script>
