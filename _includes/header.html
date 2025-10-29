@@ -1,18 +1,80 @@
 <a id="content-skip" href="#content" tabindex="1">Skip to content</a>
 
-<header id="canvafein" class="site-header">
-    <!-- Logo & Title -->
-    <div class="header-left">
-        <a href="/"><img id="logo" src="/images/gear.svg" alt="1418 logo"></a>
-        <div class="header-group">
-            <h2 class="title"><a href="/">Orotrikim</a></h2>
-            <h5 class="title-simple"><a id="title-mini" href="/">rotrikim</a></h5>
-            <h3><a href="/">First Lego League Team Mehunanim</a></h3>
-        </div>
-    </div>
+<style>
+    .ohio{
+        display: none;
+        margin-left: 650px;
+        width: 8vh;
+    }
 
-    <!-- Desktop Nav + Social Icons -->
-    <nav class="desktop-nav">
+    @media screen and (max-width: 1099px) {
+        .ohio {
+            display: flex; 
+            right: 10px;
+        }
+    }
+    .navwindow {
+        background-color:#2b2a28;
+        margin-top: 80px;
+        margin-left: -200px;
+        transform: translateX(100%);
+        display: block;
+        height: 1000px;
+    }
+    .links{
+        margin-top: 15px;
+        font-size: 20px;
+        text-decoration: underline;
+    }
+    .nestedlinks{
+        display: block;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+
+    /* === ONLY CHANGE: SOCIAL LOGOS → 2×2 SQUARE GRID === */
+    .social-container {
+        display: inline-block;
+        margin-left: 20px;
+        vertical-align: top;
+    }
+    #social {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 80px;
+    }
+    #social .social {
+        display: contents;
+    }
+    #social img {
+        width: 32px;
+        height: 32px;
+        display: block;
+    }
+</style>
+
+<header id="canvafein">
+    <a href="/"><img id="logo" src="/images/gear.svg" alt="1418 logo"></a>
+    <div class="header-group">
+        <h2 class="title"><a href="/">Orotrikim</a></h2>
+        <h5 class="title-simple"><a id="title-mini" href="/">rotrikim</a></h5>
+        <h3><a href="/">First Lego League Team Mehunanim</a></h3>
+    </div>
+    <div id="nav-button"><span></span><span></span><span></span></div>
+    <img src="/images/navnew.png" class="ohio" id="ohioskullemoji">
+    <nav>
+        <div class="social-container">
+            <div class="social" id="social">
+                <div><a href="mailto:OrotrikimATSYMBOLgmailPERIODcom" target="_blank"><img src="/images/social/email.svg" alt="Email icon"></a></div>
+                <div><a href="http://instagram.com/orotrikim" target="_blank"><img src="/images/social/instagram.svg" alt="Instagram logo"></a></div>
+                <div><a href="https://www.youtube.com/@{{ site.youtube_username }}" target="_blank"><img src="/images/social/youtube.svg" alt="Youtube logo"></a></div>
+            </div>
+            <div class="social">
+                <div><a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank"><img src="/images/social/facebook.svg" alt="Facebook logo"></a></div>
+            </div>
+        </div>
+        
         <ul class="nav-list">
             <li><a href="/">Home</a></li>
             <li class="dropdown">
@@ -22,208 +84,23 @@
             <li><a href="/sponsorship">Sponsor Us</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
-
-        <!-- SOCIAL ICONS — SQUARE GRID -->
-        <div class="social-container">
-            <div class="social-icons">
-                <a href="mailto:OrotrikimATSYMBOLgmailPERIODcom" target="_blank" aria-label="Email">
-                    <img src="/images/social/email.svg" alt="">
-                </a>
-                <a href="http://instagram.com/orotrikim" target="_blank" aria-label="Instagram">
-                    <img src="/images/social/instagram.svg" alt="">
-                </a>
-                <a href="https://www.youtube.com/@{{ site.youtube_username }}" target="_blank" aria-label="YouTube">
-                    <img src="/images/social/youtube.svg" alt="">
-                </a>
-                <a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank" aria-label="Facebook">
-                    <img src="/images/social/facebook.svg" alt="">
-                </a>
-            </div>
-        </div>
     </nav>
-
-    <!-- Mobile Hamburger -->
-    <div id="nav-button" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-    </div>
-    <img src="/images/navnew.png" class="ohio" id="ohioskullemoji" alt="Menu icon">
+    <script src="/js/scripts.js"></script>
+    <script src="/js/header.js"></script>
 </header>
 
-<!-- Mobile Slide-In Menu — ROBOTS SECTION REMOVED -->
-<nav class="navwindow" id="navid" aria-hidden="true">
-    <ul class="links"><a href="/">HOME</a></ul>
-
-    <ul class="links"><a href="/team">THE TEAM</a></ul>
-    <ul><a href="/alumni" class="nestedlinks">ALUMNI</a></ul>
-
-    <ul class="links"><a href="/sponsorship">SPONSOR US</a></ul>
-    <ul class="links"><p>MORE</p></ul>
-    <ul><a href="/outreach" class="nestedlinks">OUTREACH</a></ul>
-    <ul><a href="/contact" class="nestedlinks">CONTACT</a></ul>
-    <ul><a href="/branding" class="nestedlinks">BRANDING</a></ul>
-    <ul><a href="/resources" class="nestedlinks">RESOURCES</a></ul>
+<nav>
+    <header class="navwindow" id="navid">
+        <div>
+            <ul class="links"><a href="/">HOME</a></ul>
+            <ul class="links"><a href="/team">THE TEAM</a></ul>
+            <ul><a href="/alumni" class="nestedlinks">ALUMNI</a></ul>
+            <ul class="links"><a href="/sponsorship">SPONSOR US</a></ul>
+            <ul class="links"><p>MORE</p></ul>
+            <ul><a href="/outreach" class="nestedlinks">OUTREACH</a></ul>
+            <ul><a href="/contact" class="nestedlinks">CONTACT</a></ul>
+            <ul><a href="/branding" class="nestedlinks">BRANDING</a></ul>
+            <ul><a href="/resources" class="nestedlinks">RESOURCES</a></ul>
+        </div>
+    </header>
 </nav>
-
-<!-- Scripts -->
-<script src="/js/scripts.js"></script>
-<script src="/js/header.js"></script>
-
-<!-- CUSTOM STYLES -->
-<style>
-    /* Layout */
-    .site-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem;
-        background: #1a1a1a;
-        color: #fff;
-        flex-wrap: wrap;
-    }
-
-    .header-left {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    #logo {
-        height: 50px;
-    }
-
-    .header-group h2, .header-group h3, .header-group h5 {
-        margin: 0;
-        line-height: 1.2;
-    }
-
-    .title { font-size: 1.5rem; }
-    .title-simple { font-size: 1rem; display: none; }
-    h3 { font-size: 0.9rem; color: #aaa; }
-
-    /* Desktop Nav */
-    .desktop-nav {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-    }
-
-    .nav-list {
-        list-style: none;
-        display: flex;
-        gap: 1.5rem;
-        margin: 0;
-        padding: 0;
-    }
-
-    .nav-list a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: 500;
-    }
-
-    .nav-list a:hover { color: #d12727; }
-
-    /* SOCIAL ICONS — SQUARE GRID */
-    .social-icons {
-        display: grid;
-        grid-template-columns: repeat(2, 40px);
-        gap: 0.75rem;
-        justify-content: center;
-    }
-
-    .social-icons a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 40px;
-        height: 40px;
-        background: rgba(255,255,255,0.1);
-        border-radius: 8px;
-        transition: all 0.2s;
-    }
-
-    .social-icons a:hover {
-        background: #d12727;
-        transform: translateY(-2px);
-    }
-
-    .social-icons img {
-        width: 24px;
-        height: 24px;
-        filter: brightness(0) invert(1);
-    }
-
-    /* Mobile Hamburger */
-    #nav-button {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-    }
-
-    #nav-button span {
-        width: 30px;
-        height: 3px;
-        background: #fff;
-        border-radius: 2px;
-    }
-
-    /* Mobile: Ohio Icon */
-    .ohio {
-        display: none;
-        width: 8vh;
-        cursor: pointer;
-    }
-
-    /* Mobile Menu */
-    .navwindow {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 280px;
-        height: 100vh;
-        background: #2b2a28;
-        padding: 6rem 2rem 2rem;
-        transition: right 0.3s ease;
-        z-index: 1000;
-        overflow-y: auto;
-    }
-
-    .navwindow.open {
-        right: 0;
-    }
-
-    .links, .nestedlinks {
-        margin: 0.5rem 0;
-        font-size: 1.1rem;
-    }
-
-    .links a, .nestedlinks a {
-        color: #fff;
-        text-decoration: none;
-    }
-
-    .nestedlinks {
-        margin-left: 1.5rem;
-        font-size: 0.95rem;
-        color: #ccc;
-    }
-
-    /* Responsive */
-    @media (max-width: 1099px) {
-        .desktop-nav, .header-group h2, .header-group h3 {
-            display: none;
-        }
-        .title-simple { display: block; font-size: 1.3rem; }
-        #nav-button, .ohio { display: flex; }
-        .ohio { position: absolute; right: 1rem; top: 1.5rem; }
-    }
-
-    @media (max-width: 600px) {
-        .social-icons {
-            grid-template-columns: repeat(2, 36px);
-            gap: 0.5rem;
-        }
-        .social-icons a { width: 36px; height: 36px; }
-    }
-</style>
