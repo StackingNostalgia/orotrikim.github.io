@@ -5,7 +5,7 @@ baseurl: "" # Don't change this, this refers to the site's relative path, like /
 url: "https://1418.team"
 youtube_username: Orotrikim
 instagram_username: orotrikim
-facebook_username: 
+facebook_username: Facebook
 
 # Build settings
 sass:
