@@ -73,12 +73,33 @@
         display: block;
     }
 
-    /* === YELLOW ACTIVE MARKER (#ffff00) === */
+    /* === YELLOW BUTTON EFFECT ON HOVER & ACTIVE === */
+    .nav-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .nav-list a {
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 8px;
+        transition: background 0.2s ease, color 0.2s ease;
+        font-weight: 500;
+    }
+
+    .nav-list a:hover {
+        background: #ffff00;
+        color: #000 !important;
+    }
+
     .nav-list a.active {
-        color: #ffff00 !important;
+        background: #ffff00;
+        color: #000 !important;
         font-weight: bold;
-        text-decoration: underline;
-        text-underline-offset: 4px;
     }
 </style>
 
@@ -103,7 +124,7 @@
             </div>
         </div>
         
-        <!-- NAV WITH YELLOW ACTIVE MARKER -->
+        <!-- NAV WITH YELLOW BUTTON EFFECT -->
         <ul class="nav-list">
             <li><a href="/" {% if page.permalink == '/' or page.url == '/' %}class="active"{% endif %}>Home</a></li>
             <li class="dropdown">
